@@ -82,7 +82,7 @@ function viewAllDepartments() {
     })
 };
 
-// viewAllDepartments(), viewALLRoles(),viewAllEmployees() all function very similarly. The let query is only thing changing to fulfill AC: WHEN I choose to view all roles THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role. SELECT the whole contents FROM table of role and combines or JOIN the department table ON role
+// viewAllDepartments(), viewALLRoles(),viewAllEmployees() all function very similarly.  The let query is only thing changing to fulfill AC: WHEN I choose to view all roles THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role. SELECT the whole contents FROM table of role and combines or JOIN the department table ON role
 function viewAllRoles() {
     console.log("viewAllRoles")
     let query = "select * from role LEFT JOIN department ON role.department_id = department.id"
@@ -94,10 +94,10 @@ function viewAllRoles() {
         startApplication()
     })
 };
-
+// ON statement is the condition. INNER JOIN takes away tables that do not satisfy the join condition set by the ON statement. In this case the ON is saying 
 function viewAllEmployees() {
-    // let query = "select * from employee LEFT JOIN role ON role.id = employee.role_id"
-    let query = "select T1.id, T1.first_name, T1.last_name, CONCAT(T2.first_name, T2.last_name) as managerName from employee T1  INNER JOIN employee T2 ON T1.manager_id = T2.id"
+    let query = "select T1.id, T1.first_name, T1.last_name, role.title, role.salary CONCAT(T2.first_name, T2.last_name) as managerName from employee T1  INNER JOIN employee T2 ON T1.manager_id = T2.id INNER JOIN role ON T1.role_id = role.id";
+    // let query = "Select * from role INNER Join employee";
     db.query(query, function (error, response) {
         if (error) {
             console.log(error)
@@ -205,6 +205,7 @@ async function addAnEmployee() {
 
 };
 
+// .map() is a method on an array that creates an populates a new array when the function is called. .map syntax: array.map(function(currentValue, index, arr), thisValue). In this case we have an array of objects
 async function updateEmployeeRoles() {
     const roles = await queryRoles()
     const employees = await queryEmployee()
