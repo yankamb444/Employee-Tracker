@@ -1,3 +1,5 @@
+-- The database schema properties is based off of the challenge. Refrenced the mini project in SQL activities of the class repo
+-- Database name and creation
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
@@ -23,4 +25,5 @@ CREATE TABLE employee (
   role_id INT,
   manager_id INT 
 );
+
 

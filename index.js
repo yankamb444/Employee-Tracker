@@ -1,8 +1,9 @@
 // packages needed
+// Referenced 12-SQL mini project in activities 
 const mysql = require('mysql2');
 const inquirer = require("inquirer");
 
-// creates a connect with your database
+// creates a connection with your database
 const db = mysql.createConnection({
         host: 'localhost',
         user: 'root',
@@ -94,10 +95,9 @@ function viewAllRoles() {
         startApplication()
     })
 };
-// ON statement is the condition. INNER JOIN takes away tables that do not satisfy the join condition set by the ON statement. In this case the ON is saying 
+// ON statement is the condition. INNER JOIN takes away tables that do not satisfy the join condition set by the ON statement.
 function viewAllEmployees() {
-    let query = "select T1.id, T1.first_name, T1.last_name, role.title, role.salary CONCAT(T2.first_name, T2.last_name) as managerName from employee T1  INNER JOIN employee T2 ON T1.manager_id = T2.id INNER JOIN role ON T1.role_id = role.id";
-    // let query = "Select * from role INNER Join employee";
+    let query = "Select * from role INNER Join employee";
     db.query(query, function (error, response) {
         if (error) {
             console.log(error)
