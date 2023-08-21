@@ -30,6 +30,10 @@ The goal of the challenge is to create a searchable database for a company's emp
 
 
 
+https://github.com/yankamb444/Employee-Tracker/assets/127771643/9536c721-7de1-43b4-8c59-3fd9b2f0ae99
+
+
+
 
 # Resources Used
 This challenge was created with the help of a tutor, mini project in the class repo (12 SQL, last in activities), and the resource(s) below.  
