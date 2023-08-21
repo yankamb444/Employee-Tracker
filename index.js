@@ -35,7 +35,7 @@ async function queryEmployee() {
 
 // the startApplication fuction is the main function where are code is in. AC: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role. <- user must make a secltion. Use inquire.prompt to list chocices and propt the user to make a selection.
 
-// .then we are (returning user input) AC:WHEN I choose to view all departments will run the first if statement as true and excute viewAllDepartments() taking us to line 71. If the user picked a different option, it would excute those functions instead.
+// .then we are (returning user input) AC:WHEN I choose to view all departments will run the first if statement as true and excute viewAllDepartments(). If the user picked a different option, it would excute those functions instead.
 function startApplication() {
     inquirer
         .prompt({
@@ -83,7 +83,7 @@ function viewAllDepartments() {
     })
 };
 
-// viewAllDepartments(), viewALLRoles(),viewAllEmployees() all function very similarly.  The let query is only thing changing to fulfill AC: WHEN I choose to view all roles THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role. SELECT the whole contents FROM table of role and combines or JOIN the department table ON role
+// viewAllDepartments(), viewALLRoles(),viewAllEmployees() all function very similarly.  The let query is only thing changing to fulfill AC: WHEN I choose to view all roles THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role. SELECT the whole contents FROM table of role and combines or JOIN the department table ON role. Pretty much - take everything from the role table and join it with the department On the condition of role.department_id should equal = department.id
 function viewAllRoles() {
     console.log("viewAllRoles")
     let query = "select * from role LEFT JOIN department ON role.department_id = department.id"
@@ -95,7 +95,6 @@ function viewAllRoles() {
         startApplication()
     })
 };
-// ON statement is the condition. INNER JOIN takes away tables that do not satisfy the join condition set by the ON statement.
 function viewAllEmployees() {
     let query = "Select * from role INNER Join employee";
     db.query(query, function (error, response) {
