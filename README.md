@@ -1,7 +1,7 @@
 # Employee-Tracker
 
 # Description 
-The goal of the challenge is to create a searchable database for a company's employees using Node.js, Inquirer, and MySql. 
+The goal of the challenge is to create a searchable database for a company's employees using Node.js, Inquirer, and MySql. The user can update any employees, roles, departments, and wages. 
 
 # Acceptance Criteria 
  1. GIVEN a command-line application that accepts user input
